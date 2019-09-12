@@ -10,7 +10,6 @@ import Header from "./components/header";
 import Media from "./components/media";
 import Highdef from "./components/highdef";
 import Explanation from "./components/explanation";
-import { tsPropertySignature } from "@babel/types";
 
 function App() {
   // API call
@@ -42,8 +41,7 @@ function App() {
         console.log("The data was not returned", error);
       });
   }, []);
-
-
+  
   return (
     <div className="App">
       {/* <Header / > */}
