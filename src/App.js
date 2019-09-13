@@ -1,15 +1,18 @@
 // dependencies
 import React, { useEffect, useState }  from "react";
 import axios from "axios";
+import styled from "styled-components";
 
 // styling
 import "./App.css";
 
 // components
-import Header from "./components/header";
+import PageHeader from "./components/header";
 import Media from "./components/media";
-import Highdef from "./components/highdef";
 import Explanation from "./components/explanation";
+import Highdef from "./components/highdef";
+
+
 
 function App() {
   // API call
@@ -44,15 +47,9 @@ function App() {
   
   return (
     <div className="App">
-      {/* <Header / > */}
-      <Header title={ apod.title } date={ apod.date } />
-      <div className="media-container"> 
-        {/* <Media / > */}
-        <Media type={ apod.media_type } url={ apod.url } copyright={ apod.copyright } />
-        {/* ? : <Highdef / > */}
-        {"hdurl" in apod ? <Highdef hdurl= { apod.hdurl } /> : <></> }
-      </div>
-      {/* <Explanation / > */}
+      <PageHeader title={ apod.title } date={ apod.date } />
+      <Media type={ apod.media_type } url={ apod.url } copyright={ apod.copyright } />
+      {"hdurl" in apod ? <Highdef hdurl= { apod.hdurl } /> : <></> }
       <Explanation text={ apod.explanation } />
     </div>
   );
